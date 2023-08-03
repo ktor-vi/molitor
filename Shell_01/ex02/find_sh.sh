@@ -1,1 +1,1 @@
-find . -type f -not -name "*.sh" | cut -c  3-
+find . -type f  -name "*.sh" -exec basename {} .sh ";"
