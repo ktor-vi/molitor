@@ -6,9 +6,11 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 13:23:36 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/03 14:28:56 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/03 16:29:09 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {

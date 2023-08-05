@@ -6,9 +6,11 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:53:48 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/02 16:08:16 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:39:53 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_print_double(char a, char b)
 {
@@ -38,11 +40,6 @@ void	inner_loop(char g, char h, char i, char j)
 		i++;
 		j = '0';
 	}
-}
-
-int	main(void)
-{
-	ft_print_comb2();
 }
 
 void	ft_print_comb2(void)

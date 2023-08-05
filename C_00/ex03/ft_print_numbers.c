@@ -1,20 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/03 08:56:35 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/03 09:21:30 by vphilipp         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_putchar(char c);
-void ft_print_numbers(void);
-
-int main(void){
-    ft_print_numbers();
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-void ft_print_numbers(void){
-    char digit = '0';
+void	ft_print_numbers(void)
+{
+	char	digit;
 
-    for(int i = 0; i < 10; i++){
-        ft_putchar(digit);
-        digit++;
-    }
-}
-void ft_putchar(char c){
-    write(1, &c, 1);
+	digit = '0';
+	while (digit != ':')
+	{
+		ft_putchar(digit);
+		digit++;
+	}
 }

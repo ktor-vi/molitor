@@ -1,18 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/03 08:53:23 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/03 08:53:34 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/05 10:31:20 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/05 10:39:12 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+int	ft_strcmp(char *s1, char *s2)
 {
-	write(1, &c, 1);
+	int	i;
+	int	result;
+
+	i = 0;
+	result = 0;
+	while (s1[i] != '\0')
+	{
+		if (s1[i] > s2[i])
+		{
+			result = 1;
+			break;
+		}
+		if (s1[i] < s2[i])
+		{
+			result = -1;
+			break;
+		}
+		i++;
+	}
+	return (result);
+}
+
+int main(void)
+{
+	char* s1 = "haello";
+	char* s2 = "hello";
+
+	printf("%d", ft_strcmp(s1, s2));
 }
