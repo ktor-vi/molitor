@@ -6,26 +6,23 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 17:24:12 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/05 20:30:10 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/06 15:24:40 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+int ft_strlen(char *str) {
+  int i;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+  i = 0;
+  while (str[i] != '\0') {
+    i++;
+  }
+  return (i);
 }
 
-int	ft_str_is_alpha(char *str)
-{
-	int	i;
-	int	result;
+int ft_str_is_alpha(char *str) {
+  int i;
+  int result;
 
 	i = 0;
 	result = 1;
