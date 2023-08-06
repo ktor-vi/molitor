@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 11:23:38 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/05 19:24:58 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/06 17:26:08 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,4 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		dest[i] = '\0';
 	}
 	return (dest);
-}
-
-int	main(void)
-{
-	char s1[20] = "holla";	char *s2;
-
-	s2 = "hello";
-
-	ft_strncat(s1, s2, 4);
-	printf("%s", s1);
 }
