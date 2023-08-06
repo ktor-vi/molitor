@@ -10,40 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 
-#include <stdio.h> 
+int ft_strlen(char *str) {
+  int i;
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+  i = 0;
+  while (str[i] != '\0') {
+    i++;
+  }
+  return (i);
 }
 
-int	ft_str_is_uppercase(char *str)
-{
-	int	i;
-	int	result;
+int ft_str_is_printable(char *str) {
+  int i;
+  int result;
 
-	i = 0;
-	result = 1;
-	while (i < ft_strlen(str))
-	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-		{
-			result = 0;
-		}
-		i++;
-	}
-	return (result);
-}
-
-int main(void)
-{
-    printf("%d", ft_str_is_printable("OOOOOPOP"));
+  i = 0;
+  result = 1;
+  while (i < ft_strlen(str)) {
+    if (!(str[i] >= 32 && str[i] <= 126)) {
+      result = 0;
+    }
+    i++;
+  }
+  return (result);
 }
