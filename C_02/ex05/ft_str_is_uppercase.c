@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 11:30:54 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/04 11:33:07 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/05 18:46:35 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,4 @@ int	ft_str_is_uppercase(char *str)
 		i++;
 	}
 	return (result);
-}
-
-int main(void)
-{
-    printf("%d", ft_str_is_uppercase("OOOOOPOP"));
 }

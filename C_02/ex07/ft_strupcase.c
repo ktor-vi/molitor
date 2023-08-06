@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 11:36:48 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/04 12:01:44 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/05 18:46:47 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,4 @@ char	*ft_strupcase(char *str)
 		i++;
 	}
 	return (str);
-}
-
-int	main(void)
-{
-	char input[] = "adadaOpOPOp";
-	ft_strupcase(input);
-	printf("%s\n", input);
-	return (0);
 }

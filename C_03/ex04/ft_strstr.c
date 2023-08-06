@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/04 11:35:35 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/05 18:47:14 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/05 19:42:59 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/05 19:49:30 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h> 
 
 int	ft_strlen(char *str)
 {
@@ -24,20 +22,16 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_str_is_uppercase(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
-	int	result;
-
+	
 	i = 0;
-	result = 1;
-	while (i < ft_strlen(str))
+	while (str[i])
 	{
-		if (!(str[i] >= 32 && str[i] <= 126))
+		while(j < ft_strlen(to_find))
 		{
-			result = 0;
-		}
-		i++;
+			
+		}	
 	}
-	return (result);
 }

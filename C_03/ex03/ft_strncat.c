@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 11:53:47 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/05 12:04:29 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/05 11:23:38 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/05 19:24:58 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,31 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char *ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	int	len;
 	int	i;
+	int	j;
 
 	len = ft_strlen(src);
+	j = 0;
 	i = ft_strlen(dest);
-	while (i < ft_strlen(dest) + len)
+	while (src[j] != '\0' && j < nb)
 	{
-		dest[len] = src[len];
-		len--;
+		dest[i] = src[j];
+		i++;
+		j++;
+		dest[i] = '\0';
 	}
 	return (dest);
 }
 
-int main(void)
+int	main(void)
 {
-	char* s1 = "holla";
-	char* s2 = "hello";
+	char s1[20] = "holla";	char *s2;
 
-    ft_strcat(s1, s2);
+	s2 = "hello";
+
+	ft_strncat(s1, s2, 4);
 	printf("%s", s1);
 }
