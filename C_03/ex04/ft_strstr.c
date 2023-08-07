@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 19:42:59 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/06 17:32:59 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/07 08:21:10 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -24,20 +26,23 @@ int	ft_strlen(char *str)
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
-	int	j;
-	int	tf_size;
+	char	*ptr_str;
+	char	*ptr_find;
 
-	i = 0;
-	j = 1;
-	tf_size = ft_strlen(to_find);
-
-	while (str[i] < tf_size)
+	if (*to_find == '\0')
+		return ((char *)str);
+	while (*str)
 	{
-		while (j <)
+		ptr_str = str;
+		ptr_find = to_find;
+		while (*ptr_find && *ptr_str == *ptr_find)
 		{
+			ptr_str++;
+			ptr_find++;
 		}
+		if (*ptr_find == '\0')
+			return ((char *)str);
+		str++;
 	}
-
-    if()
+	return (NULL);
 }
