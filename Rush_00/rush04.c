@@ -13,7 +13,7 @@ void rush(int x, int y) {
     while (j < x) {
       // ici premier if pour les coins 0:0 et 4:4 -> les A du rectangle
       if ((i == 0 && j == 0) ||
-          (i == y - 1 && j == x - 1) && y != 1 && x != 1) {
+          ((i == y - 1 && j == x - 1) && (y != 1 && x != 1))) {
         ft_putchar('A');
         // ici deuxième if pour les coins 0:4 et 4:0 -> les C du rectangle
       } else if ((i == 0 && j == x - 1) || (i == y - 1 && j == 0)) {
