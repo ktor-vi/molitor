@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "stdlib.h": "c",
-        "sstream": "c"
+        "sstream": "c",
+        "__locale": "c",
+        "unistd.h": "c"
     }
 }

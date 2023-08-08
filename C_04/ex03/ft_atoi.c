@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 11:23:38 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/07 16:08:00 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/07 09:49:00 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/07 16:17:04 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strlen(char *str)
+int	ft_c_is_numeric(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
+	return (c >= '0' && c <= '9');
 }
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_atoi(char *str)
 {
-	unsigned int	len;
-	unsigned int	i;
-	unsigned int	j;
+	int	sign;
+	int	result;
+	int	i;
 
-	len = ft_strlen(src);
-	j = 0;
-	i = ft_strlen(dest);
-	while (src[j] != '\0' && j < nb)
+	sign = 1;
+	result = 0;
+	i = 0;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
 	{
-		dest[i] = src[j];
 		i++;
-		j++;
-		dest[i] = '\0';
 	}
-	return (dest);
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			sign = -1;
+		}
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
 }

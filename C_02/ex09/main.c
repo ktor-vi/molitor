@@ -5,24 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: badam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/13 15:54:18 by badam             #+#    #+#             */
-/*   Updated: 2019/06/14 10:33:27 by badam            ###   ########.fr       */
+/*   Created: 2019/06/10 14:59:19 by badam             #+#    #+#             */
+/*   Updated: 2019/06/10 22:05:50 by badam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_atoi(char *str);
+char	*ft_strcapitalize(char *src);
 
-int	main(void)
+void	ft_putstr(char *str)
 {
-	printf("42:%d\n", ft_atoi("  \n  42t4457"));
-	printf("-42:%d\n", ft_atoi(" --+-42sfs:f545"));
-	printf("0:%d\n", ft_atoi("\0 1337"));
-	printf("0:%d\n", ft_atoi("-0"));
-	printf("0:%d\n", ft_atoi(" - 1 3 2 5 6 3 2 1 6 7"));
-	printf("-1325632167:%d\n", ft_atoi("-1325632167"));
-	printf("-100:%d\n", ft_atoi("-100"));
-	printf("min:%d\n", ft_atoi("\t---+2147483648"));
-	printf("max:%d\n", ft_atoi("\v2147483647"));
+	int l;
+
+	l = 0;
+	while (str[l])
+	{
+		l++;
+	}
+	write(1, str, l);
+}
+
+int		main()
+{
+	char c[] = "salut, coMMent tu vAs ? 42mOts quArAnTe-dEux; cinQuante+et+un";
+	ft_putstr("Salut, Comment Tu Vas ? 42mots Quarante-Deux; Cinquante+Et+Un:");
+	ft_putstr(ft_strcapitalize(c));
+	ft_putstr(":");
+	ft_putstr(c);
 }

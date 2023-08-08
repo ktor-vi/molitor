@@ -1,50 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 09:48:11 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/07 09:19:00 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/07 09:27:49 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/07 12:25:33 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_c_is_alpha(char c)
-{
-	int	result;
+#include <unistd.h>
 
-	result = 1;
-	if (!((c >= 97 && c <= 122) || (c >= 65 && c <= 90) || (c >= 48
-				&& c <= 57)))
-	{
-		result = 0;
-	}
-	return (result);
-}
-
-char	*ft_strcapitalize(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (ft_c_is_alpha(str[i - 1]) == 0)
+		i++;
+	}
+	return (i);
+}
+
+int	ft_str_is_printable(char *str)
+{
+	int	i;
+	int	result;
+
+	i = 0;
+	result = 1;
+	while (i < ft_strlen(str))
+	{
+		if (!(str[i] >= 32 && str[i] <= 126))
 		{
-			if (str[i] >= 97 && str[i] <= 122)
-			{
-				str[i] = str[i] - ('a' - 'A');
-			}
-		}
-		if (ft_c_is_alpha(str[i - 1]) == 1)
-		{
-			if (str[i] >= 65 && str[i] <= 90)
-			{
-				str[i] = str[i] - ('A' - 'a');
-			}
+			result = 0;
 		}
 		i++;
 	}
-	return (str);
+	return (result);
+}
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }

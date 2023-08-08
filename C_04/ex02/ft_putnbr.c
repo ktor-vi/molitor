@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 11:23:38 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/07 16:08:00 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/07 09:32:34 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/07 13:40:07 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_putnbr(int nb)
 {
-	int	i;
+	char	placeholder;
 
-	i = 0;
-	while (str[i] != '\0')
+	if (nb < 0)
 	{
-		i++;
+		write(1, "-", 1);
+		nb = -nb;
 	}
-	return (i);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int	len;
-	unsigned int	i;
-	unsigned int	j;
-
-	len = ft_strlen(src);
-	j = 0;
-	i = ft_strlen(dest);
-	while (src[j] != '\0' && j < nb)
+	if (nb == 0)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
-		dest[i] = '\0';
+		write(1, "0", 1);
+		return ;
 	}
-	return (dest);
+	if (nb >= 10)
+	{
+		ft_putnbr(nb / 10);
+	}
+	placeholder = (char)(nb % 10) + '0';
+	write(1, &placeholder, 1);
 }

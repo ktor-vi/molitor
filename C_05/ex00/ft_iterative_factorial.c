@@ -1,44 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 11:23:38 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/07 16:08:00 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/07 16:46:56 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/07 16:55:57 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	ft_strlen(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
+	int	result;
 
-	i = 0;
-	while (str[i] != '\0')
+	result = nb;
+	if (nb == 0)
 	{
-		i++;
+		return (1);
 	}
-	return (i);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	unsigned int	len;
-	unsigned int	i;
-	unsigned int	j;
-
-	len = ft_strlen(src);
-	j = 0;
-	i = ft_strlen(dest);
-	while (src[j] != '\0' && j < nb)
+	else if (nb == 1)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
-		dest[i] = '\0';
+		return (1);
 	}
-	return (dest);
+	else if (nb >= 1)
+	{
+		while (nb >= 2)
+		{
+			result *= nb - 1;
+			nb--;
+		}
+		return (result);
+	}
+	else
+	{
+		return (0);
+	}
 }

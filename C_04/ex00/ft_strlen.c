@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 18:13:50 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/07 18:19:11 by ktorvi           ###   ########.fr       */
+/*   Created: 2023/08/07 09:27:27 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/07 09:27:38 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+int	ft_strlen(char *str)
 {
-	if (power == 0)
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		return (1);
+		i++;
 	}
-	else if (power == 1)
-	{
-		return (nb);
-	}
-	else if (power > 0)
-	{
-		nb *= ft_recursive_power(nb, power - 1);
-	}
-	return (nb);
+	return (i);
 }
