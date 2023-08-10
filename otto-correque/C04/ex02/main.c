@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: badam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 10:31:20 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/09 13:47:12 by vphilipp         ###   ########.fr       */
+/*   Created: 2019/06/13 15:54:18 by badam             #+#    #+#             */
+/*   Updated: 2019/06/13 15:57:10 by badam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+#include <stdio.h>
 
-	i = 0;
-	while (s1[i] == s2[i])
-	{
-		if (s1[i] == '\0')
-			return (0);
-		i++;
-	}
-	return (s1[i] - s2[i]);
+void	ft_putnbr(int nb);
+
+int		main(void)
+{
+	ft_putnbr(42);
+	printf("\n");
+	ft_putnbr(-42);
+	printf("\n");
+	ft_putnbr(-2147483648);
+	printf("\n");
+	ft_putnbr(2147483647);
+	printf("\n");
 }

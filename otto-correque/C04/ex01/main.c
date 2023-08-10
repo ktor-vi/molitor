@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: badam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 10:31:20 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/09 13:47:12 by vphilipp         ###   ########.fr       */
+/*   Created: 2019/06/13 15:51:06 by badam             #+#    #+#             */
+/*   Updated: 2019/06/13 15:54:02 by badam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
+void	ft_putstr(char *str);
 
-	i = 0;
-	while (s1[i] == s2[i])
-	{
-		if (s1[i] == '\0')
-			return (0);
-		i++;
-	}
-	return (s1[i] - s2[i]);
+int		main(void)
+{
+	char s1[] = "Suc";
+	char s2[] = "cess\n";
+	ft_putstr(s1);
+	ft_putstr(s2);
 }

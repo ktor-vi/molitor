@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:40:20 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/09 11:54:02 by ktorvi           ###   ########.fr       */
+/*   Updated: 2023/08/09 12:55:09 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	ft_strlen(char *str)
 char	*ft_strcat(char *dest, char *src)
 
 {
-	int len;
-	int i;
-	int j;
+	int	len;
+	int	i;
+	int	j;
 
 	len = ft_strlen(src);
 	j = 0;
@@ -56,16 +56,18 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	malloc_size = 1;
 	while (i < size)
 	{
-		malloc_size += ft_strlen(*strs[i]);
+		malloc_size += ft_strlen(strs[i]);
 		if (i < size - 1)
 			malloc_size += ft_strlen(sep);
+		i++;
 	}
 	i = 0;
 	result = malloc(malloc_size);
 	while (i < size)
 	{
-		strcat(result, *strs[i]);
-		strcat(result, sep);
+		ft_strcat(result, strs[i]);
+		ft_strcat(result, sep);
+		i++;
 	}
 	return (result);
 }

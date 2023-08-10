@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 12:22:33 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/07 15:08:49 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:24:22 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	int	base_len;
 
 	base_len = ft_strlen(base);
-	if (base_len > 2 && !(find_dupc(base)) && !ft_strstr_bool(base, "+")
+	if (base_len >= 2 && !(find_dupc(base)) && !ft_strstr_bool(base, "+")
 		&& !ft_strstr_bool(base, "-") && !ft_strstr_bool(base, "\t"))
 	{
 		if (nbr < 0)
@@ -85,7 +85,7 @@ void	ft_putnbr_base(int nbr, char *base)
 			write(1, "0", 1);
 			return ;
 		}
-		if (nbr >= 10)
+		if (nbr >= base_len)
 		{
 			ft_putnbr_base(nbr / base_len, base);
 		}
