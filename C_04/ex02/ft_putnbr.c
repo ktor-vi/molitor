@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 09:32:34 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/09 15:26:58 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/10 09:41:36 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ void	ft_putnbr(int nb)
 		write(1, "0", 1);
 		return ;
 	}
-	if (nb > 10)
-	{
+	if (nb > 9)
 		ft_putnbr(nb / 10);
-	}
 	placeholder = (char)(nb % 10) + '0';
 	write(1, &placeholder, 1);
 }
