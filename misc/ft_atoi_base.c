@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 13:42:11 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/10 11:57:07 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/10 12:43:29 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,29 +22,6 @@ int	ft_strlen(char *str)
 		i++;
 	}
 	return (i);
-}
-
-int	ft_strstr_bool(char *str, char *to_find)
-{
-	char	*ptr_str;
-	char	*ptr_find;
-
-	if (*to_find == '\0')
-		return (0);
-	while (*str)
-	{
-		ptr_str = str;
-		ptr_find = to_find;
-		while (*ptr_find && *ptr_str == *ptr_find)
-		{
-			ptr_str++;
-			ptr_find++;
-		}
-		if (*ptr_find == '\0')
-			return (1);
-		str++;
-	}
-	return (0);
 }
 
 int	find_dupc(char *str)
@@ -66,15 +43,15 @@ int	find_dupc(char *str)
 		}
 		str++;
 	}
-	return (0)
+	return (0);
 }
 
 int	ft_atoi_cond(char *base)
 {
 	int	base_len;
-    
+
 	base_len = ft_strlen(base);
-	if (base_len > 2 && !(find_dupc(base)) && !ft_strstr_bool(base, "+")
+	if (base_len > 1 && !(find_dupc(base)) && !ft_strstr_bool(base, "+")
 		&& !ft_strstr_bool(base, "-") && !ft_strstr_bool(base, "\t"))
 	{
 		return (1);
@@ -95,15 +72,14 @@ int	ft_atoi_base(char *str, char *base)
 	result = 0;
 	if (ft_atoi_cond(base))
 	{
-		while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-			str++;
-		if (*str == '-' || *str == '+')
+		while (*str == ' ' || (*str >= '\t' && *str <= '\r') || (*str == '-'
+				|| *str == '+'))
 		{
 			if (*str == '-')
 				sign *= -1;
 			str++;
 		}
-		while (*str >= 33 && *str <= 127)
+		while (*str >= 33 && *str <= 126)
 		{
 			digit = 0;
 			while (base[digit] != *str)

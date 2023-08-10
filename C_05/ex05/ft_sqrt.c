@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:08:55 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/09 12:52:07 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/10 12:41:07 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ int	ft_sqrt(int nb)
 	if (nb <= 0)
 	{
 		return (0);
+	}
+	if (nb == 1)
+	{
+		return (1);
 	}
 	while (i * i != nb && i > 0)
 	{
