@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 12:22:33 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/10 08:55:47 by ktorvi           ###   ########.fr       */
+/*   Created: 2023/08/07 13:42:11 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/08 16:15:56 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,49 +50,71 @@ int	ft_strstr_bool(char *str, char *to_find)
 int	find_dupc(char *str)
 {
 	char	c;
-	char	*temp;
 
 	while (*str)
 	{
 		c = *str;
-		temp = str + 1;
-		while (*temp)
+		str++;
+		while (*str)
 		{
-			if (*temp == c)
+			if (*str == c)
 			{
 				return (1);
 			}
-			temp++;
+			str++;
 		}
-		str++;
 	}
 	return (0);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int	ft_atoi_cond(char *base)
 {
-	long	result;
-	int		base_len;
+	int	base_len;
 
-	result = nbr;
 	base_len = ft_strlen(base);
-	if (base_len > 1 && !find_dupc(base) && !ft_strstr_bool(base, "+")
+	if (base_len > 2 && !(find_dupc(base)) && !ft_strstr_bool(base, "+")
 		&& !ft_strstr_bool(base, "-") && !ft_strstr_bool(base, "\t"))
 	{
-		if (result < 0)
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int	sign;
+	int	result;
+	int	digit;
+
+	sign = 1;
+	result = 0;
+	if (ft_atoi_cond(base))
+	{
+		while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+			str++;
+		if (*str == '-' || *str == '+')
 		{
-			write(1, "-", 1);
-			result = -result;
+			if (*str == '-')
+				sign *= -1;
+			str++;
 		}
-		if (result == 0)
+		while (*str)
 		{
-			write(1, "0", 1);
-			return ;
+			digit = 0;
+			while (base[digit] != *str)
+				digit++;
+			if (digit >= ft_strlen(base))
+				break ;
+			result = result * ft_strlen(base) + digit;
+			str++;
 		}
-		if (result >= base_len)
-		{
-			ft_putnbr_base(result / base_len, base);
-		}
-		write(1, &base[result % base_len], 1);
+		return (result * sign);
+	}
+	else
+	{
+		return (result);
 	}
 }
