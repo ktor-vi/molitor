@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:21:39 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/10 12:25:09 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/10 17:56:23 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,13 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int	base_10;
 	int	base_to_len;
+	int	result_tab[tab];
 
 	base_to_len = ft_strlen(base_to);
 	base_10 = ft_to_base10(nbr, base_from);
 	while (base_10 > 0)
 	{
+
+		base_10 / base_to_len
 	}
 }

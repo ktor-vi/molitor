@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/07 13:42:11 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/10 16:51:38 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/10 15:37:54 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/10 17:25:27 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
@@ -90,3 +90,49 @@ int	ft_atoi_base(char *str, char *base)
 		return (result);
 	}
 }
+
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
+{
+	char	*converted_value;
+	int		*result_tab;
+	int		base_10;
+	int		result;
+	int		i;
+
+	i = 0;
+	converted_value = "";
+	base_10 = ft_atoi_base(nbr, base_from);
+	result = base_10;
+	while (base_10 != 0)
+	{
+		result /= ft_strlen(base_to);
+		i++;
+	}
+	result_tab = malloc(i + 1 * 4);
+	result = base_10;
+	while (i > -1)
+	{
+		result_tab[i] = result % ft_strlen(base_to);
+		result /= ft_strlen(base_to);
+		i--;
+	}
+	i = 0;
+	while (result_tab[i])
+	{
+		converted_value[i] = base_to[result_tab[i] % ft_strlen(base_to)];
+		i++;
+	}
+	return (converted_value);
+	free(result_tab);
+}
+
+#include <stdio.h>
+
+char *ft_convert_base(char *nbr, char *base_from, char *base_to);
+
+int	main(void)
+{
+	printf("42:%s\n", ft_convert_base("--2a", "0123456789abcdef", "0123456789"));
+	printf("-2a:%s\n", ft_convert_base("-42", "0123456789", "0123456789abcdef"));
+}
+
