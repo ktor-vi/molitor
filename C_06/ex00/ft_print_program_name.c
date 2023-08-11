@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 12:29:26 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/09 12:52:01 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:00:57 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 int	main(int argc, char *argv[])
 {
-	while (*argv[0])
+	if (argc == 1)
 	{
-		write(1, argv[0], 1);
-		argv[0]++;
+		while (*argv[0])
+		{
+			write(1, argv[0], 1);
+			argv[0]++;
+		}
+		write(1, "\n", 1);
 	}
-	write(1, "\n", 1);
+	else
+	{
+		return (1);
+	}
 }

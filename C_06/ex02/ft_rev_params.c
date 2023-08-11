@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_params.c                          :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 12:43:01 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/09 12:51:57 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/08 12:52:05 by ktorvi            #+#    #+#             */
+/*   Updated: 2023/08/11 12:17:06 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,19 @@ int	main(int argc, char *argv[])
 	int	i;
 
 	i = 1;
-	while (argv[i])
+	while (i < argc)
+	{
+		i++;
+	}
+	i--;
+	while (i > 0)
 	{
 		while (*argv[i])
 		{
 			write(1, argv[i], 1);
 			argv[i]++;
 		}
-		i++;
+		i--;
 		write(1, "\n", 1);
 	}
 }
