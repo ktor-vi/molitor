@@ -3,12 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:21:39 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/10 17:56:23 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/14 10:41:25 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+char	*i_tab_to_a(int *tab, int tab_len);
+int		ft_atoi_base(char *str, char *base);
 
 int	ft_strlen(char *str)
 {
@@ -68,35 +74,41 @@ int	invalid_base(char *str)
 	return (0);
 }
 
-int	ft_to_base10(char *nbr, char *base)
+int	ft_nbr_chars_base(int nbr, int base_len)
 {
-	int	result;
-	int	base_len;
-	int	power;
+	int	i;
 
-	base_len = ft_strlen(base);
-	power = ft_strlen(nbr) - 1;
-	result = 0;
-	while (*nbr)
+	i = 0;
+	while (nbr > 0)
 	{
-		result += (*nbr - '0') * ft_iterative_power(base_len, power);
-		power--;
-		nbr++;
+		nbr /= base_len;
+		i++;
 	}
-	return (result);
+	return (i);
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int	base_10;
-	int	base_to_len;
-	int	result_tab[tab];
+	int		base_10;
+	int		base_to_len;
+	char	*converted_tab;
+	int		i;
 
+	i = 0;
 	base_to_len = ft_strlen(base_to);
-	base_10 = ft_to_base10(nbr, base_from);
+	base_10 = ft_atoi_base(nbr, base_from);
+	converted_tab = malloc(ft_nbr_chars_base(base_10, base_to_len));
 	while (base_10 > 0)
 	{
-
-		base_10 / base_to_len
+		converted_tab[ft_nbr_chars_base(base_10, base_to_len) - 1
+			- i] = base_to[base_10 % base_to_len];
+		base_10 /= base_to_len;
+		i++;
 	}
+	return (converted_tab);
+}
+
+int	main(void)
+{
+	printf("%s", ft_convert_base("101010", "01", "0123456789"));
 }
