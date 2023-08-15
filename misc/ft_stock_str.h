@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 05:09:14 by badam             #+#    #+#             */
-/*   Updated: 2023/08/15 10:00:53 by ktorvi           ###   ########.fr       */
+/*   Created: 2023/08/15 10:46:55 by ktorvi            #+#    #+#             */
+/*   Updated: 2023/08/15 10:47:15 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_abs.h"
-#include <stdio.h>
-
-int	main(void)
+typedef struct s_stock_str
 {
-	printf("%d\n", ABS(-42));
-	printf("%d\n", ABS(42));
-}
+	int		size;
+	char	*str;
+	char	*copy;
+}			t_stock_str;
