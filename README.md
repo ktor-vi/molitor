@@ -6,8 +6,8 @@ Repo of my piscine projects from school 19, Brussels
 
 | Exercice | Grade | Exercice | Grade | Exam     | Grade |
 |----------|-------| ---------|-------|----------|-------|
-| Shell 00 |  70%  | C 04     | 30%   | Exam 00  |  80%  |
-| Shell 01 | 100%  | C 05     |       | Exam 01  |       |
+| Shell 00 |  70%  | C 04     | 100%  | Exam 00  |  80%  |
+| Shell 01 | 100%  | C 05     | 60%   | Exam 01  |  80%  |
 | C 00     | 72%   | C 06     |       | Exam 02  |       |
 | C 01     | 95%   | C 07     |       | Final    |       |
 | C 02     | 75%   | C 08     |       |
