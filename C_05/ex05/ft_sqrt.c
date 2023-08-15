@@ -6,15 +6,15 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:08:55 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/11 12:25:28 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/14 15:42:26 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_sqrt(int nb)
 {
-	int	i;
+	long	i;
 
-	i = nb - 1;
+	i = 1;
 	if (nb <= 0)
 	{
 		return (0);
@@ -23,9 +23,13 @@ int	ft_sqrt(int nb)
 	{
 		return (1);
 	}
-	while (i * i != nb && i > 0)
+	while (i * i <= nb)
 	{
-		i--;
+		if (i * i == nb)
+		{
+			return (i);
+		}
+		i++;
 	}
-	return (i);
+	return (0);
 }

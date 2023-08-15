@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 23:31:57 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/09 12:52:03 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/14 15:10:15 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,13 @@ int	ft_is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	int	i;
-
-	i = nb + 1;
-	if (ft_is_prime(nb) == 1)
+	if (nb < 2)
+		return (2);
+	while (nb >= 2)
 	{
-		return (nb);
+		if (ft_is_prime(nb) == 1)
+			return (nb);
+		nb++;
 	}
-	else
-	{
-		while (ft_is_prime(i) == 0)
-		{
-			i++;
-		}
-		return (i);
-	}
+	return (0);
 }

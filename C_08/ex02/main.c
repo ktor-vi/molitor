@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: badam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/21 05:09:14 by badam             #+#    #+#             */
-/*   Updated: 2023/08/14 16:20:26 by vphilipp         ###   ########.fr       */
+/*   Updated: 2019/06/22 03:49:19 by badam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_abs.h"
 #include <stdio.h>
+#include "ft_abs.h"
 
 int	main(void)
 {

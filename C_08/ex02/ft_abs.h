@@ -1,18 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 10:46:55 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/15 10:47:15 by ktorvi           ###   ########.fr       */
+/*   Created: 2023/08/14 17:38:44 by ktorvi            #+#    #+#             */
+/*   Updated: 2023/08/15 11:32:07 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_stock_str
-{
-	int		size;
-	char	*str;
-	char	*copy;
-}			t_stock_str;
+#include <limits.h>
+
+#define ABS(x) ((x) * (((x) >> (4 * CHAR_BIT - 1)) | 1))

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 05:09:14 by badam             #+#    #+#             */
-/*   Updated: 2023/08/14 16:20:26 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/15 11:28:42 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/15 11:32:00 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_abs.h"
-#include <stdio.h>
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
-int	main(void)
+typedef struct s_point
 {
-	printf("%d\n", ABS(-42));
-	printf("%d\n", ABS(42));
-}
+	int	x;
+	int	y;
+}		t_point;
+#endif

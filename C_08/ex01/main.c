@@ -5,16 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 05:09:14 by badam             #+#    #+#             */
-/*   Updated: 2023/08/14 16:20:26 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/14 15:51:26 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/14 15:51:31 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_abs.h"
-#include <stdio.h>
+#include "ft_boolean.h"
 
-int	main(void)
+void	ft_putstr(char *str)
 {
-	printf("%d\n", ABS(-42));
-	printf("%d\n", ABS(42));
+	while (*str)
+		write(1, str++, 1);
+}
+
+t_bool	ft_is_even(int nbr)
+{
+	return ((EVEN(nbr)) ? TRUE : FALSE);
+}
+
+int	main(int argc, char **argv)
+{
+	(void)argv;
+	if (ft_is_even(argc - 1) == TRUE)
+		ft_putstr(EVEN_MSG);
+	else
+		ft_putstr(ODD_MSG);
+	return (SUCCESS);
 }
