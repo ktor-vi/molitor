@@ -1,0 +1,1 @@
+#define MY_FUNCTION( x )  if( x ) { PRINT("TRUE"); } else { PRINT("FALSE"); } 
