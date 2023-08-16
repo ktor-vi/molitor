@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 07:27:20 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/16 07:59:53 by ktorvi           ###   ########.fr       */
+/*   Updated: 2023/08/16 14:49:39 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 int	ft_strlen(char *str)
 {
@@ -40,32 +42,44 @@ int	ft_cc(char c, char *charset)
 	return (0);
 }
 
+void	ft_strcpy_index(int i, int j, char *src, char *dest)
+{
+	int	len;
+	int	c;
+
+	len = j - i;
+	c = 0;
+	while (c < len)
+	{
+		dest[c] = src[i];
+		c++;
+		i++;
+	}
+}
+
 char	**ft_split(char *str, char *charset)
 {
 	char	**splitted;
 	int		i;
 	int		j;
+	int		k;
 
-	splitted = malloc(sizeof(char **));
-	i = 1;
-	while (i < ft_strlen(str))
+	if (str == NULL || charset == NULL)
+		return (0);
+	splitted = malloc(ft_strlen(str));
+	j = 0;
+	k = 0;
+	while (str[j] != '\0')
 	{
-		j = i + 1;
-		if (ft_cc(str[i - 1], charset) && !ft_cc(str[i], charset))
-		{
-			while(!(!ft_cc(str[j - 1], charset) && !ft_cc(str[j], charset)))
-			{
-				
-			}
-		}
-		i++;
-		
+		i = j;
+		while (!ft_cc(str[j], charset) && str[j] != '\0')
+			j++;
+		splitted[k] = (char *)malloc(j - i + 1);
+		ft_strcpy_index(i, j, str, splitted[k]);
+		k++;
+		while (ft_cc(str[j], charset) && str[j] != '\0')
+			j++;
 	}
-}
-
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%lu", sizeof(char **));
+	splitted[k] = 0;
+	return (splitted);
 }
