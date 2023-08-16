@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: badam <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/21 05:09:14 by badam             #+#    #+#             */
-/*   Updated: 2019/06/22 03:49:19 by badam            ###   ########.fr       */
+/*   Created: 2023/08/05 10:31:20 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/09 13:47:12 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "ft_abs.h"
-
-int	main(void)
+int	ft_strcmp(char *s1, char *s2)
 {
-	printf("%d\n", ABS(-42));
-	printf("%d\n", ABS(42));
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i])
+	{
+		if (s1[i] == '\0')
+			return (0);
+		i++;
+	}
+	return (s1[i] - s2[i]);
 }
