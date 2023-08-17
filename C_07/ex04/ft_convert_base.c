@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:21:39 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/14 15:58:46 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/17 12:20:07 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,13 @@ int	ft_nbr_chars(int nbr, int base_len)
 
 char	*inner_while(int base_10, char *converted_rev, char *base_to, int i)
 {
+	if (base_10 == 0)
+	{
+		converted_rev = malloc(2);
+		converted_rev[0] = base_to[0];
+		converted_rev[1] = '\0';
+		return (converted_rev);
+	}
 	while (base_10 > 0)
 	{
 		converted_rev[i] = base_to[base_10 % ft_strlen(base_to)];
@@ -97,7 +104,6 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	converted = inner_while(base_10, converted, base_to, i);
 	if (neg == 1)
 		converted[ft_nbr_chars(base_10, ft_strlen(base_to))] = '-';
-	converted[ft_nbr_chars(base_10, ft_strlen(base_to)) + neg] = '\0';
 	return (reverse_str(converted));
 	free(converted);
 }

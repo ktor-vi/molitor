@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 07:27:20 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/16 14:49:39 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/17 12:26:27 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,14 @@ char	**ft_split(char *str, char *charset)
 	int		k;
 
 	if (str == NULL || charset == NULL)
-		return (0);
-	splitted = malloc(ft_strlen(str));
+		return (malloc(1));
+	splitted = malloc(ft_strlen(str) * 2);
 	j = 0;
 	k = 0;
 	while (str[j] != '\0')
 	{
+		while (ft_cc(str[j], charset) && str[j] != '\0')
+			j++;
 		i = j;
 		while (!ft_cc(str[j], charset) && str[j] != '\0')
 			j++;
