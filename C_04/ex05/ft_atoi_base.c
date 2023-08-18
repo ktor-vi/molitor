@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 13:42:11 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/10 16:51:38 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/17 19:47:14 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	valid_base(char *str)
 
 int	ft_atoi_while(char *str, char *base, int digit, int result)
 {
-	while (*str >= 33 && *str <= 126)
+	while (*str)
 	{
 		digit = 0;
-		while (base[digit] != *str)
+		while (base[digit] != *str && base[digit] != '\0')
 			digit++;
 		if (digit >= ft_strlen(base))
 			break ;
@@ -76,8 +76,9 @@ int	ft_atoi_base(char *str, char *base)
 	digit = 0;
 	if (valid_base(base))
 	{
-		while (*str == ' ' || (*str >= '\t' && *str <= '\r') || (*str == '-'
-				|| *str == '+'))
+		while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+			str++;
+		while (*str == '-' || *str == '+')
 		{
 			if (*str == '-')
 				sign *= -1;

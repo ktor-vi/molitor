@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_display_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 14:23:50 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/17 12:34:06 by ktorvi           ###   ########.fr       */
+/*   Created: 2023/08/17 12:42:45 by ktorvi            #+#    #+#             */
+/*   Updated: 2023/08/17 12:52:54 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
-# include <unistd.h>
+#include <unistd.h>
 
-# define EVEN_MSG "I have an even number of arguments."
-# define ODD_MSG "I have an odd number of arguments."
-# define TRUE 1
+int	main(int argc, char **argv)
+{
+	int	fd;
 
-typedef int	t_bool;
-# define FALSE 0
-# define SUCCESS 0
-# define EVEN(nbr) (nbr % 2 == 0)
-#endif
+	if (argc > 2)
+	{
+		write(1, "Too many arguments.\n", 20);
+		return (1);
+	}
+	else if (argc == 1)
+	{
+		write(1, "File name missing.\n", 19);
+		return (1);
+	}
+	fd = open(argv[1], O_RDONLY);
+	while (!feof(fd))
+	{
+	}
+}
