@@ -6,7 +6,7 @@
 /*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 11:40:20 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/16 17:08:26 by ktorvi           ###   ########.fr       */
+/*   Updated: 2023/08/18 06:59:23 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			malloc_size += ft_strlen(sep);
 		i++;
 	}
-	i = 0;
-	result = malloc(malloc_size);
-	while (i < size)
+	i = -1;
+	result = malloc((malloc_size + 1) * sizeof(char));
+	result[0] = '\0';
+	while (++i < size)
 	{
 		ft_strcat(result, strs[i]);
 		if (i < size - 1)
 			ft_strcat(result, sep);
-		i++;
 	}
 	return (result);
 }

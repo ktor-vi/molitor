@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 10:04:34 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/14 15:58:38 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/18 06:59:04 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h> 
+#include <stdlib.h>
 
-int	ft_strlen(char *str);
-int	invalid_base(char *str);
+int		invalid_base(char *str);
+int		ft_strlen(char *str);
 
 int	ft_atoi_while(char *str, char *base, int digit, int result)
 {
-	while (*str >= 33 && *str <= 126)
+	while (*str)
 	{
 		digit = 0;
-		while (base[digit] != *str)
+		while (base[digit] != *str && base[digit] != '\0')
 			digit++;
 		if (digit >= ft_strlen(base))
 			break ;
@@ -39,10 +39,11 @@ int	ft_atoi_base(char *str, char *base)
 	sign = 1;
 	result = 0;
 	digit = 0;
-	if (!invalid_base(base))
+	if (valid_base(base))
 	{
-		while (*str == ' ' || (*str >= '\t' && *str <= '\r') || (*str == '-'
-				|| *str == '+'))
+		while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+			str++;
+		while (*str == '-' || *str == '+')
 		{
 			if (*str == '-')
 				sign *= -1;
@@ -72,28 +73,4 @@ char	*reverse_str(char *str)
 	}
 	rev[i] = '\0';
 	return (rev);
-}
-
-int	ft_iterative_power(int nb, int power)
-{
-	int	result;
-
-	result = nb;
-	if (power == 0)
-	{
-		return (1);
-	}
-	else if (power == 1)
-	{
-		return (nb);
-	}
-	else if (power > 1)
-	{
-		while (power > 1)
-		{
-			result *= nb;
-			power--;
-		}
-	}
-	return (result);
 }

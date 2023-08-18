@@ -6,7 +6,7 @@
 /*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:21:39 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/17 12:20:07 by ktorvi           ###   ########.fr       */
+/*   Updated: 2023/08/18 06:59:08 by ktorvi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int	invalid_base(char *str)
 		temp = str + 1;
 		while (*temp)
 		{
-			if (*temp == c || *temp == '+' || *temp == '-')
+			if (*temp == c || *temp == '+' || *temp == '-' || *temp == ' '
+				|| (*temp >= 9 && *temp <= 13))
 			{
 				return (1);
 			}
@@ -69,7 +70,7 @@ char	*inner_while(int base_10, char *converted_rev, char *base_to, int i)
 {
 	if (base_10 == 0)
 	{
-		converted_rev = malloc(2);
+		converted_rev = malloc(2 * sizeof(char));
 		converted_rev[0] = base_to[0];
 		converted_rev[1] = '\0';
 		return (converted_rev);
