@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 10:46:55 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/15 11:38:17 by vphilipp         ###   ########.fr       */
+/*   Created: 2019/06/20 03:29:23 by badam             #+#    #+#             */
+/*   Updated: 2023/08/17 15:35:27 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include <stdio.h>
 
-typedef struct s_stock_str
+char *ft_convert_base(char *nbr, char *base_from, char *base_to);
+
+int	main(void)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}			t_stock_str;
-#endif
+	printf("42:%s\n", ft_convert_base("--2a", "0123456789abcdef", "0123456789"));
+	printf("-2a:%s\n", ft_convert_base("-42", "0123456789", "0123456789abcdef"));
+	printf("?:%s\n", ft_convert_base("--01234", "0123456789", "01"));
+}

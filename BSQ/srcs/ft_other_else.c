@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stock_str.h                                     :+:      :+:    :+:   */
+/*   ft_other_else.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/15 10:46:55 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/15 11:38:17 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/23 19:34:30 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/23 19:36:08 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STOCK_STR_H
-# define FT_STOCK_STR_H
+#include "../includes/ft_map.h"
 
-typedef struct s_stock_str
+void	other_else_handler(int argc, int i)
 {
-	int		size;
-	char	*str;
-	char	*copy;
-}			t_stock_str;
-#endif
+	write(1, "map error\n", 10);
+	if (argc > 2 && i != argc - 1)
+		write(1, "\n", 1);
+}

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_get.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/14 14:23:50 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/23 12:46:25 by vphilipp         ###   ########.fr       */
+/*   Created: 2023/08/23 18:00:04 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/23 18:33:15 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
-# include <unistd.h>
+#include "../includes/ft_map.h"
 
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-# define TRUE 1
+char	get_empty(char *str)
+{
+	return (str[str_len(str) - 3]);
+}
 
-typedef int	t_bool;
-# define FALSE 0
-# define SUCCESS 0
-# define EVEN(nbr) (nbr % 2 == 0)
-#endif
+char	get_obs(char *str)
+{
+	return (str[str_len(str) - 2]);
+}
+
+char	get_full(char *str)
+{
+	return (str[str_len(str) - 1]);
+}

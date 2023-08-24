@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atol.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktorvi <ktorvi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 19:33:47 by ktorvi            #+#    #+#             */
-/*   Updated: 2023/08/19 19:35:29 by ktorvi           ###   ########.fr       */
+/*   Created: 2023/08/20 17:29:36 by vphilipp          #+#    #+#             */
+/*   Updated: 2023/08/23 15:12:12 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atol(char *str)
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int	smallest(int nbr1, int nbr2)
 {
-	long	sign;
-	long	result;
-	int		i;
+	if (nbr1 > nbr2)
+		return (nbr2);
+	else
+		return (nbr1);
+}
+
+int	ft_atoi(char *str)
+{
+	int	sign;
+	int	result;
+	int	i;
 
 	sign = 1;
 	result = 0;
@@ -33,8 +45,20 @@ long	ft_atol(char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * (long)10 + (long)(str[i] - '0');
+		result = result * 10 + (str[i] - '0');
 		i++;
 	}
 	return (result * sign);
+}
+
+int	str_len(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }

@@ -4,6 +4,9 @@
         "sstream": "c",
         "__locale": "c",
         "unistd.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "fcntl.h": "c",
+        "ft_stock_str.h": "c",
+        "ft_map.h": "c"
     }
 }

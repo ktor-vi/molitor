@@ -6,7 +6,7 @@
 /*   By: vphilipp <vphilipp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 11:38:22 by vphilipp          #+#    #+#             */
-/*   Updated: 2023/08/15 13:52:54 by vphilipp         ###   ########.fr       */
+/*   Updated: 2023/08/21 13:19:29 by vphilipp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	int					i;
 
 	i = 0;
-	str_tab = (struct s_stock_str *)malloc(ac * 24);
+	str_tab = (struct s_stock_str *)malloc((ac + 1) * 24);
 	while (i < ac)
 	{
 		str_tab[i].size = ft_strlen(av[i]);
@@ -55,6 +55,8 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		ft_strcpy(str_tab[i].copy, av[i]);
 		i++;
 	}
+	str_tab[i].str = 0;
+	str_tab[i].copy = 0;
 	return (str_tab);
 	free(str_tab);
 }
